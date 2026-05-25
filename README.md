@@ -13,6 +13,23 @@ Browser automation integration for Claude Code via MCP (Model Context Protocol).
 
 Claude Playwright adds browser automation capabilities to Claude Code. It provides 26+ tools for controlling browsers, managing sessions, and automating web interactions with enterprise-grade reliability.
 
+## Quick start (clone and run — Claude Code)
+
+Sau khi clone repo, chạy từ **thư mục gốc** (root):
+
+```bash
+git clone https://github.com/smartlabsAT/claude-playwright.git
+cd claude-playwright
+npm run setup:claude
+claude
+```
+
+Hoặc từng bước: `npm install` → `npm run build` → `npx playwright install chromium` → `claude`.
+
+Trong Claude Code: `/mcp` — thấy `playwright` là thành công. Mặc định `BASE_URL`: `http://localhost:4200` (sửa trong `.mcp.json` nếu cần).
+
+Yêu cầu: Node 16+, [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) (`npm install -g @anthropic-ai/claude-code`).
+
 ## Installation
 
 ```bash

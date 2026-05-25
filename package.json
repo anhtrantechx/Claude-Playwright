@@ -38,6 +38,9 @@
     "test:playwright": "playwright test",
     "prepublishOnly": "npm run build",
     "postinstall": "node scripts/postinstall.js",
+    "setup:claude": "npm install && npm run build && npx playwright install chromium",
+    "start:claude": "claude",
+    "mcp:status": "node bin/claude-playwright.js mcp status",
     "publish:alpha": "npm publish --tag alpha",
     "publish:next": "npm publish --tag next",
     "version:alpha": "npm version prerelease --preid=alpha"
@@ -92,6 +95,7 @@
     "@types/fs-extra": "^11.0.1",
     "@types/inquirer": "^9.0.3",
     "@types/node": "^20.5.0",
+    "claude-playwright": "^0.1.4",
     "tsup": "^8.5.0",
     "tsx": "^4.20.5",
     "typescript": "^5.1.6"

@@ -2,9 +2,7 @@
   "mcpServers": {
     "playwright": {
       "command": "node",
-      "args": [
-        "/private/var/www/claude-playwright-toolkit/dist/mcp/server.cjs"
-      ],
+      "args": ["./dist/mcp/server.cjs"],
       "env": {
         "BASE_URL": "http://localhost:4200"
       }
