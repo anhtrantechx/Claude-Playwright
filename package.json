@@ -28,6 +28,7 @@
   },
   "scripts": {
     "build": "tsup",
+    "build:ci": "NODE_OPTIONS=--max-old-space-size=6144 tsup",
     "build:tsc": "tsc",
     "dev": "tsup --watch",
     "dev:cli": "tsx src/cli/index.ts",

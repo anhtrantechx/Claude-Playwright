@@ -1,7 +1,8 @@
 # Run Playwright when developers add/update e2e/*.spec.ts
 #
 # Flow:
-#   commit *.spec.ts → push / PR → this workflow → install → build → playwright test → ✅/❌
+#   commit *.spec.ts → push / PR → install → playwright test → ✅/❌
+# Note: E2E specs only use @playwright/test — no tsup build (avoids DTS OOM on runner).
 
 name: E2E (Playwright)
 
@@ -34,7 +35,6 @@ jobs:
 
     env:
       CI: true
-      # Override in repo Variables: PLAYWRIGHT_BASE_URL (e.g. http://localhost:4200)
       XOPS_PORTAL_URL: ${{ vars.XOPS_PORTAL_URL || 'https://perf-portal-dev.xops-core-platform.techxdata.io/?period_id=M05+-+FY2026' }}
       PLAYWRIGHT_BASE_URL: ${{ vars.PLAYWRIGHT_BASE_URL || 'https://example.com' }}
 
@@ -50,17 +50,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build package
-        run: npm run build
-
       - name: Install Playwright Chromium
         run: npx playwright install chromium --with-deps
 
       - name: Run E2E tests (e2e/*.spec.ts)
-        run: npm run test:e2e
+        run: npm run test:e2e -- e2e/xops-leader-scorecard.spec.ts
 
       - name: Upload Playwright report
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report

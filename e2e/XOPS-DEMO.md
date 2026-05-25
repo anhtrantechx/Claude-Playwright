@@ -53,9 +53,10 @@ git push
 
 Trên GitHub: **Actions** → workflow **E2E (Playwright)** → xem pass/fail.
 
-**CI:** Đặt repository variable `PLAYWRIGHT_BASE_URL` =  
-`https://perf-portal-dev.xops-core-platform.techxdata.io`  
-(Settings → Secrets and variables → Actions → Variables)
+**CI:** Workflow E2E không chạy `npm run build` (tránh OOM tsup DTS trên runner).  
+Tuỳ chọn variable `XOPS_PORTAL_URL` trong Settings → Actions → Variables.
+
+Nếu cần build package trên CI khác: dùng `npm run build:ci` (heap 6GB).
 
 ---
 
