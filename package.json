@@ -36,6 +36,7 @@
     "test:cli": "node tests/test-cli-commands.js",
     "test:install": "node tests/test-installation.js",
     "test:playwright": "playwright test",
+    "test:e2e": "playwright test -c playwright.e2e.config.ts",
     "prepublishOnly": "npm run build",
     "postinstall": "node scripts/postinstall.js",
     "setup:claude": "npm install && npm run build && npx playwright install chromium",

@@ -13,8 +13,8 @@ build/
 coverage/
 .nyc_output/
 test-results/
-test-output/
 playwright-report/
+test-output/
 playwright/.cache
 
 # Session and auth data (sensitive)

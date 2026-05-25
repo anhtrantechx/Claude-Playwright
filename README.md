@@ -30,6 +30,18 @@ Trong Claude Code: `/mcp` — thấy `playwright` là thành công. Mặc địn
 
 Yêu cầu: Node 16+, [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) (`npm install -g @anthropic-ai/claude-code`).
 
+## E2E test cases (Playwright CI)
+
+1. Thêm file test: `e2e/your-feature.spec.ts`
+2. Push hoặc mở PR → workflow **[`.github/workflows/e2e.yml`](./.github/workflows/e2e.yml)** tự chạy Playwright → ✅ / ❌ trên GitHub
+
+```bash
+npm run test:e2e                    # local, mặc định https://example.com
+PLAYWRIGHT_BASE_URL=http://localhost:4200 npm run test:e2e
+```
+
+Chi tiết: [e2e/README.md](./e2e/README.md)
+
 ## Installation
 
 ```bash
